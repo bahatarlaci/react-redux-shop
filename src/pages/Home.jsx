@@ -9,11 +9,11 @@ const Home = () => {
     <>
       <SliderComp />
       <Sorting />
-      <div className="grid grid-cols-12">
-        <div className="col-span-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="lg:col-span-3">
           <Category />
         </div>
-        <div className="col-span-9">
+        <div className="lg:col-span-9">
           <Products />
         </div>
       </div>

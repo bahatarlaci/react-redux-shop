@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const getCategories = createAsyncThunk('category', async () => {
-    const response = await fetch(`${baseUrl}products/categories`);
+    const response = await fetch(`${baseUrl}/products/categories`);
     const data = response.json();
     return data;
 })
