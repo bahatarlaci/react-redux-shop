@@ -12,7 +12,7 @@ const SliderComp = () => {
     autoplay: true,
   };
   return (
-    <div className='border-b-2 border-gray'>
+    <>
       <Slider {...settings}>
         <div className='!flex items-center justify-between bg-gray-100 px-4 sm:px-6 lg:px-8'>
           <div>
@@ -43,7 +43,7 @@ const SliderComp = () => {
           </div>
         </div>
       </Slider>
-    </div>
+    </>
   )
 }
 
