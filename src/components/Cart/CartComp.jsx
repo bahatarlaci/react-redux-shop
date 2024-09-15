@@ -12,7 +12,7 @@ const CartComp = ({ cart, favorite }) => {
     <>
       <div className='mt-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center border-b pb-5'>
         <div onClick={() => navigate('/products/' + cart?.id)} className='lg:col-span-2 flex justify-center lg:justify-start cursor-pointer'>
-          <img className='w-[150px] h-[150px] object-cover' src={cart?.image} alt={cart.title} />
+          <img className='w-[150px] h-[150px] object-cover' src={cart?.image} alt={cart?.title} />
         </div>
 
         <div className='lg:col-span-5 cursor-pointer' onClick={() => navigate('/products/' + cart?.id)}>

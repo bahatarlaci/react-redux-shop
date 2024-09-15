@@ -45,6 +45,7 @@ const Navbar = () => {
                 type="text"
                 placeholder="Arama yapınız..."
                 className="mr-2 focus:outline-none"
+                onChange={(e) => e.target.value ? navigate(`/products/search/${e.target.value} `) : navigate("/")}
               />
               <FaSearch size={25} />
             </div>
@@ -79,6 +80,7 @@ const Navbar = () => {
               type="text"
               placeholder="Arama yapınız..."
               className="mr-2 focus:outline-none"
+              onChange={(e) => e.target.value ? navigate(`/products/search/${e.target.value} `) : navigate("/")}
             />
             <FaSearch size={25} />
           </div>

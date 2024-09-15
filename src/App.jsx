@@ -8,6 +8,7 @@ import Detail from "./pages/Detail";
 import Cart from "./pages/Cart";
 import Footer from "./components/Footer/Footer";
 import Favorite from "./pages/Favorite";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="/products/:id" element={<Detail />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/favorite" element={<Favorite />} />
+              <Route path="/products/search/:keyword" element={<Search />} />
             </Routes>
           </Layout>
           <Footer />
