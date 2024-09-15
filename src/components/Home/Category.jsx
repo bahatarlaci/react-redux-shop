@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { getCategories } from '../../redux/categorySlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Category = () => {
+const Category = ({ setCategory }) => {
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.categories);
 
@@ -16,7 +16,7 @@ const Category = () => {
       <div>
         {
           categories.map((category, index) => (
-            <div className='text-l px-2 py-3 cursor-pointer hover:bg-gray-200' key={index}>{category}</div>
+            <div onClick={() => setCategory(category)} className='text-l px-2 py-3 cursor-pointer hover:bg-gray-200' key={index}>{category}</div>
           ))
         }
       </div>

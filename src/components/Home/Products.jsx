@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { getProducts } from '../../redux/productSlice';
+import { getCategoryProducts, getProducts } from '../../redux/productSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from '../Loading';
 import Product from './Product';
 import ReactPaginate from 'react-paginate';
 
-const Products = () => {
+const Products = ({ category }) => {
   const dispatch = useDispatch();
 
   const { products, productsStatus } = useSelector((state) => state.products);
@@ -13,21 +13,21 @@ const Products = () => {
 
   const itemsPerPage = 6;
   const endOffset = itemOffset + itemsPerPage;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = products.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(products.length / itemsPerPage);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % products.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
     setItemOffset(newOffset);
   };
 
   useEffect(() => {
-    dispatch(getProducts())
-  }, [dispatch]);
+    if (category) {
+      dispatch(getCategoryProducts(category));
+    } else {
+      dispatch(getProducts());
+    }
+  }, [dispatch, category]);
 
   return (
     <>
@@ -44,7 +44,7 @@ const Products = () => {
         }
       </div>
       <ReactPaginate
-        className="paginate flex justify-center align-center my-5 gap-4" 
+        className="paginate flex justify-center align-center my-5 gap-4"
         breakLabel="..."
         nextLabel=">"
         onPageChange={handlePageClick}
