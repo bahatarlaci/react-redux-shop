@@ -13,10 +13,13 @@ const Detail = () => {
     dispatch(getProductDetail(id));
   }, [dispatch, id]);
 
+  console.log(productDetail)
+
   return (
     <div>
       {
         productDetailStatus === "loading" ? <div>Loading...</div> :
+        productDetail.length === 0 ? <div>No product found</div> :
           <DetailComp productDetail={productDetail} />
       }
     </div>
