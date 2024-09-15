@@ -11,7 +11,7 @@ const Products = ({ category, sort }) => {
   const { products, productsStatus } = useSelector((state) => state.products);
   const [itemOffset, setItemOffset] = useState(0);
 
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = products.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(products.length / itemsPerPage);
@@ -31,7 +31,7 @@ const Products = ({ category, sort }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {
           productsStatus == "LOADING" ? <Loading /> :
             <>
