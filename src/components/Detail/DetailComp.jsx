@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
 import { addToCard } from '../../redux/cartSlice'
+import { useNavigate } from 'react-router-dom'
 
 const DetailComp = ({ productDetail }) => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [quantity, setQuantity] = useState(1)
 
     const handleQuantityChange = (e) => {
@@ -22,6 +24,7 @@ const DetailComp = ({ productDetail }) => {
             price: productDetail?.price,
             quantity: quantity,
         }))
+        navigate('/cart')
     }
 
     return (
