@@ -6,3 +6,16 @@
 body {
     font-family: 'Open Sans', sans-serif;
 }
+
+.paginate li {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginate li.selected {
+    background-color: #ccc;
+}
