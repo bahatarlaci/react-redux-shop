@@ -95,7 +95,7 @@ const Navbar = () => {
               {
                 favoriteCount > 0 &&
                 <span className="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs absolute -top-2 -right-2">
-                  {itemCount}
+                  {favoriteCount}
                 </span>
               }
               <FaHeart size={25} />
