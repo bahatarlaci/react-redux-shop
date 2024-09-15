@@ -38,6 +38,7 @@ const cartSlice = createSlice({
                 state.carts = tempCart;
                 storeInLocalStorage(state.carts);
             } else {
+                state.itemCount = state.itemCount + 1;
                 state.carts.push(action.payload);
                 storeInLocalStorage(state.carts);
             }

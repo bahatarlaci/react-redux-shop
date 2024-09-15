@@ -70,7 +70,7 @@ const Navbar = () => {
             <FaHeart className="mr-6" size={25} />
             <div className="relative">
               <span className="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs absolute -top-2 -right-2">
-                0
+                {itemCount}
               </span>
               <FaShoppingCart size={25} />
             </div>
