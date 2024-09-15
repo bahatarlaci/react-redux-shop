@@ -4,18 +4,22 @@ import Layout from "./containers/PageLayout"
 import Navbar from "./components/Navbar/Navbar";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Detail from "./pages/Detail";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
     <>
-      <Layout>
-        <Router>
-          <Navbar />
+      <Router>
+        <Navbar />
+        <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/products/:id" element={<Detail />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
-        </Router>
-      </Layout>
+        </Layout>
+      </Router>
     </>
   )
 }

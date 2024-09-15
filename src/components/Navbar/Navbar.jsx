@@ -1,18 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaSearch, FaHeart, FaShoppingCart } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartTotal } from "../../redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { itemCount } = useSelector((state) => state.carts);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    dispatch(getCartTotal())
+  }, [dispatch]);
+
   return (
     <nav className="border-b-2 border-gray">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 cursor-pointer" onClick={() => navigate("/")}>
             <h1 className="text-xl font-bold">React Redux Shop</h1>
           </div>
           <div className="sm:hidden">
@@ -29,14 +39,14 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Arama yapınız..."
-                className="mr-2"
+                className="mr-2 focus:outline-none"
               />
               <FaSearch size={25} />
             </div>
             <FaHeart className="mr-6" size={25} />
-            <div className="relative">
+            <div className="relative cursor-pointer" onClick={() => navigate("cart")}>
               <span className="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs absolute -top-2 -right-2">
-                0
+                {itemCount}
               </span>
               <FaShoppingCart size={25} />
             </div>
