@@ -5,7 +5,7 @@ import Loading from '../Loading';
 import Product from './Product';
 import ReactPaginate from 'react-paginate';
 
-const Products = ({ category }) => {
+const Products = ({ category, sort }) => {
   const dispatch = useDispatch();
 
   const { products, productsStatus } = useSelector((state) => state.products);
@@ -36,7 +36,7 @@ const Products = ({ category }) => {
           productsStatus == "LOADING" ? <Loading /> :
             <>
               {
-                currentItems?.map((product, index) => (
+                currentItems?.sort((a,b) => sort == "inc" ? a.price - b.price : sort == "dec" ? b.price - a.price : null).map((product, index) => (
                   <Product key={index} product={product} />
                 ))
               }
