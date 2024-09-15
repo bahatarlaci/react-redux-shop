@@ -40,7 +40,7 @@ const favoriteSlice = createSlice({
             state.favoriteCount = state.favorites.length;
         },
         removeFromFavorite: (state, action) => {
-            state.favorites = state.favorites.filter(item => item.id !== action.payload.id);
+            state.favorites = state.favorites.filter(item => item.id !== action.payload);
             state.favoriteCount = state.favorites.length;
             storeInLocalStorage(state.favorites);
         },
