@@ -57,18 +57,18 @@ const Navbar = () => {
         className={`sm:hidden transition-max-height duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-40" : "max-h-0"
           }`}
       >
-        <div className="p-4 border-t border-gray-200 flex justify-between">
-          <div className="flex items-center border px-4 py-1 rounded-full mb-4">
+        <div className="px-4 py-6 border-t border-gray-200 flex justify-between items-center">
+          <div className="flex items-center border px-3 py-1 rounded-full">
             <input
               type="text"
               placeholder="Arama yapınız..."
-              className="mr-2"
+              className="mr-2 focus:outline-none"
             />
             <FaSearch size={25} />
           </div>
-          <div className="flex items-center mb-4">
-            <FaHeart className="mr-6" size={25} />
-            <div className="relative">
+          <div className="flex items-center" onClick={() => navigate("cart")}>
+            <FaHeart className="mr-4" size={25} />
+            <div className="relative mr-2">
               <span className="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs absolute -top-2 -right-2">
                 {itemCount}
               </span>
