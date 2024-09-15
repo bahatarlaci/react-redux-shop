@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <nav className="border-b-2 border-gray">
-      <div className="px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-20">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 cursor-pointer" onClick={() => navigate("/")}>
             <h1 className="text-xl font-bold">React Redux Shop</h1>
