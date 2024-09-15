@@ -8,6 +8,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { itemCount } = useSelector((state) => state.carts);
+  const { favoriteCount } = useSelector((state) => state.favorites);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -47,11 +48,22 @@ const Navbar = () => {
               />
               <FaSearch size={25} />
             </div>
-            <FaHeart className="mr-6" size={25} />
+            <div className="relative cursor-pointer mr-6" onClick={() => navigate("favorite")}>
+              {
+                favoriteCount > 0 &&
+                <span className="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs absolute -top-2 -right-2">
+                  {favoriteCount}
+                </span>
+              }
+              <FaHeart size={25} />
+            </div>
             <div className="relative cursor-pointer" onClick={() => navigate("cart")}>
-              <span className="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs absolute -top-2 -right-2">
-                {itemCount}
-              </span>
+              {
+                itemCount > 0 &&
+                <span className="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs absolute -top-2 -right-2">
+                  {itemCount}
+                </span>
+              }
               <FaShoppingCart size={25} />
             </div>
           </div>

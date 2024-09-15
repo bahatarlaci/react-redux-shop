@@ -1,36 +1,33 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
-import { getCartTotal } from '../redux/cartSlice';
 import CartComp from '../components/Cart/CartComp';
 import { formatPrice } from '../utils/format';
+import { getFavoriteTotal } from '../redux/favoriteSlice';
 
-const Cart = () => {
+const Favorite = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { carts, totalAmount } = useSelector((state) => state.carts);
+  const { favorites } = useSelector((state) => state.favorites);
 
   useEffect(() => {
-    dispatch(getCartTotal())
-  }, [dispatch, totalAmount]);
+    dispatch(getFavoriteTotal())
+  }, [dispatch]);
 
   return (
     <div>
-      <div className='text-2xl font-bold'>Cart List</div>
+      <div className='text-2xl font-bold'>Favorite List</div>
       {
-        carts?.length > 0 ?
+        favorites?.length > 0 ?
           <div>
             {
-              carts.map((cart, i) => (
-                <CartComp key={i} cart={cart} />
+              favorites.map((cart, i) => (
+                <CartComp key={i} cart={cart} favorite={true}/>
               ))
             }
-            <div className='flex items-center justify-end text-xl my-20'>
-              <div>Total Amount: <span className='ml-1 font-bold'>{formatPrice(totalAmount)}</span></div>
-            </div>
           </div> :
           <div className='text-xl my-5'>
-            Cart is empty, please add some items to cart
+            You have no favorite items.
             <div
               className='bg-blue-800 text-white w-[150px] h-10 rounded-lg flex justify-center items-center cursor-pointer mt-5'
               onClick={() => navigate('/')}
@@ -43,4 +40,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default Favorite

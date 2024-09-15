@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Detail from "./pages/Detail";
 import Cart from "./pages/Cart";
 import Footer from "./components/Footer/Footer";
+import Favorite from "./pages/Favorite";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products/:id" element={<Detail />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/favorite" element={<Favorite />} />
           </Routes>
         </Layout>
         <Footer />

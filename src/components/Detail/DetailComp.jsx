@@ -3,6 +3,7 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
 import { addToCard } from '../../redux/cartSlice'
 import { useNavigate } from 'react-router-dom'
+import { addToFavorite } from '../../redux/favoriteSlice'
 
 const DetailComp = ({ productDetail }) => {
     const dispatch = useDispatch()
@@ -25,6 +26,16 @@ const DetailComp = ({ productDetail }) => {
             quantity: quantity,
         }))
         navigate('/cart')
+    }
+
+    const addFavorite = () => {
+        dispatch(addToFavorite({
+            id: productDetail?.id,
+            title: productDetail?.title,
+            image: productDetail?.image,
+            price: productDetail?.price,
+        }))
+        navigate('/favorite')
     }
 
     return (
@@ -50,6 +61,7 @@ const DetailComp = ({ productDetail }) => {
                     quantity > productDetail?.rating?.count ? <div className='text-red-500 text-sm mt-5'>Not enough stock, only {productDetail?.rating?.count} left</div> :
                         <button className='bg-blue-500 text-white mt-3 px-3 py-2 rounded-md' onClick={addBasket}>Add to Basket</button>
                 }
+                <button className='bg-red-500 text-white mt-3 px-3 py-2 rounded-md ml-5' onClick={addFavorite}>Add to Favorite</button>
             </div>
         </div>
     )
