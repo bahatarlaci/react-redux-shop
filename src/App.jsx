@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import Footer from "./components/Footer/Footer";
 import Favorite from "./pages/Favorite";
 import Search from "./pages/Search";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/favorite" element={<Favorite />} />
               <Route path="/products/search/:keyword" element={<Search />} />
+              <Route path="*" element={<NotFound/>} />
             </Routes>
           </Layout>
           <Footer />
