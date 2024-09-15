@@ -13,6 +13,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsOpen(false);
+    window.scrollTo(0, 0);
   }, [navigate]);
 
   const toggleMenu = () => {
@@ -84,12 +85,33 @@ const Navbar = () => {
             />
             <FaSearch size={25} />
           </div>
-          <div className="flex items-center" onClick={() => navigate("cart")}>
-            <FaHeart className="mr-4" size={25} />
-            <div className="relative mr-2">
-              <span className="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs absolute -top-2 -right-2">
-                {itemCount}
-              </span>
+          <div className="flex items-center">
+            <div className="relative mr-4"
+              onClick={() => {
+                navigate("favorite");
+                setIsOpen(false);
+              }}
+            >
+              {
+                favoriteCount > 0 &&
+                <span className="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs absolute -top-2 -right-2">
+                  {itemCount}
+                </span>
+              }
+              <FaHeart size={25} />
+            </div>
+            <div className="relative mr-2"
+              onClick={() => {
+                navigate("cart");
+                setIsOpen(false);
+              }}
+            >
+              {
+                itemCount > 0 &&
+                <span className="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs absolute -top-2 -right-2">
+                  {itemCount}
+                </span>
+              }
               <FaShoppingCart size={25} />
             </div>
           </div>
