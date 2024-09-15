@@ -10,6 +10,10 @@ const Navbar = () => {
   const { itemCount } = useSelector((state) => state.carts);
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [navigate]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
