@@ -24,7 +24,7 @@ const Cart = () => {
                 <CartComp key={i} cart={cart} />
               ))
             }
-            <div className='flex items-center justify-end text-xl mt-5'>
+            <div className='flex items-center justify-end text-xl my-20'>
               <div>Total Amount: <span className='ml-1 font-bold'>{formatPrice(totalAmount)}</span></div>
             </div>
           </div> :

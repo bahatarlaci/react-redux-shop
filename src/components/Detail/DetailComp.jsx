@@ -25,7 +25,7 @@ const DetailComp = ({ productDetail }) => {
     }
 
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-12 gap-6 items-center mt-5'>
+        <div className='grid grid-cols-1 lg:grid-cols-12 gap-6 items-center my-20'>
             <div className='lg:col-span-6'>
                 <img src={productDetail?.image} alt={productDetail?.name} className='w-full h-[400px] object-cover m-auto' />
             </div>
